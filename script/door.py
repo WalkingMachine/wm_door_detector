@@ -4,7 +4,7 @@ import roslib
 import rospy
 
 from sensor_msgs.msg import LaserScan
-from std_msgs import String
+from std_msgs.msg import String
 from threading import Event
 
 
@@ -55,12 +55,12 @@ class wait_door:
 
         if self.no_door_found:
             rospy.loginfo("No door found")
-            self.door_pub("no_door")
+            self.door_pub.publish("no_door")
             return "no_door"
 
         if opened_before_timeout:
             rospy.loginfo("Door is open")
-            self.door_pub("open")
+            self.door_pub.publish("open")
             return "open"
 
         rospy.loginfo("timed out with door still closed")
