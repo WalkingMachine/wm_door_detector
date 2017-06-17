@@ -1,0 +1,3 @@
+<launch>
+  <node name="wm_door_detector" pkg="wm_door_detector" type="door.py"/>
+</launch>
